@@ -4,7 +4,7 @@
 
 :root {
     --box-size: 100px;
-    --player-sign-size: calc(var(--box-size) * .9);
+    --player-sign-size: calc(var(--box-size) * .8);
 }
 
 body {
@@ -25,10 +25,12 @@ body {
     grid-template-columns: repeat(3, auto);
 }
 
+/* game board */
+
 .box {
     width: var(--box-size);
     height: var(--box-size);
-    border: 3px solid #eadbf4;
+    border: 5px solid #eadbf4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,7 +62,12 @@ body {
     cursor: not-allowed;
 }
 
-.box.x::before, .box.x::after {
+/* x's */
+
+.box.x::before,
+.box.x::after,
+.game.turn-x .box:not(.x):not(.o):hover::before,
+.game.turn-x .box:not(.x):not(.o):hover::after {
     content: '';
     position: absolute;
     width: calc(var(--player-sign-size) * .22);
@@ -68,28 +75,72 @@ body {
     background-color: #eadbf4;
 }
 
-.box.x::before {
+.box.x::before,
+.game.turn-x .box:not(.x):not(.o):hover::before {
     transform: rotate(45deg);
 }
 
-.box.x::after {
+.box.x::after,
+.game.turn-x .box:not(.x):not(.o):hover::after {
     transform: rotate(-45deg);
 }
 
-.box.o::before, .box.o::after {
+/* circles */
+
+.box.o::before,
+.box.o::after,
+.game.turn-o .box:not(.x):not(.o):hover::before,
+.game.turn-o .box:not(.x):not(.o):hover::after {
     content: '';
     position: absolute;
     border-radius: 50%;
 }
 
-.box.o::before {
+.box.o::before,
+.game.turn-o .box:not(.x):not(.o):hover::before {
     width: calc(var(--player-sign-size)*.9);
     height: calc(var(--player-sign-size)*.9);
     background-color: #eadbf4;
 }
 
-.box.o::after {
+.box.o::after,
+.game.turn-o .box:not(.x):not(.o):hover::after {
     width: calc(var(--player-sign-size)*.5);
     height: calc(var(--player-sign-size)*.5);
     background-color: #e43a15;
+}
+
+/* restart button */
+
+.wintext {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 5rem;
+    flex-direction: column;
+}
+
+.wintext button {
+    font-size: 3rem;
+    background-color: white;
+    border: 1px solid black;
+    padding: .25em .5em;
+    cursor: pointer;
+}
+
+.wintext button:hover {
+    background-color: #e43a15;
+    border-color: white;
+    color: white;
+}
+
+.wintext.show {
+    display: flex;
 }
