@@ -9,8 +9,9 @@
 
 body {
     margin: 0;
-    background: rgb(234,219,244);
-    background: radial-gradient(circle, #eadbf4 0%, #cdcbf4 100%);
+    background: #e43a15;
+    background: -webkit-linear-gradient(to right, #e65245, #e43a15);
+    background: linear-gradient(to right, #e65245, #e43a15);
 }
 
 .game {
@@ -27,7 +28,7 @@ body {
 .box {
     width: var(--box-size);
     height: var(--box-size);
-    border: 3px solid #44408e;
+    border: 3px solid #eadbf4;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,9 +63,9 @@ body {
 .box.x::before, .box.x::after {
     content: '';
     position: absolute;
-    width: calc(var(--player-sign-size) * .15);
+    width: calc(var(--player-sign-size) * .22);
     height: var(--player-sign-size);
-    background-color: #44408e;
+    background-color: #eadbf4;
 }
 
 .box.x::before {
@@ -82,13 +83,13 @@ body {
 }
 
 .box.o::before {
-    width: var(--player-sign-size);
-    height: var(--player-sign-size);
-    background-color: #44408e;
+    width: calc(var(--player-sign-size)*.9);
+    height: calc(var(--player-sign-size)*.9);
+    background-color: #eadbf4;
 }
 
 .box.o::after {
-    width: calc(var(--player-sign-size)*.7);
-    height: calc(var(--player-sign-size)*.7);
-    background-color: #eadbf4;
+    width: calc(var(--player-sign-size)*.5);
+    height: calc(var(--player-sign-size)*.5);
+    background-color: #e43a15;
 }
