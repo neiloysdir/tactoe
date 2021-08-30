@@ -9,6 +9,8 @@
 
 body {
     margin: 0;
+    background: rgb(234,219,244);
+    background: radial-gradient(circle, #eadbf4 0%, #cdcbf4 100%);
 }
 
 .game {
@@ -25,11 +27,12 @@ body {
 .box {
     width: var(--box-size);
     height: var(--box-size);
-    border: 3px solid #333;
+    border: 3px solid #44408e;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    cursor: pointer;
 }
 
 .box:first-child,
@@ -52,12 +55,16 @@ body {
     border-bottom: none;
 }
 
+.box.o, .box.x {
+    cursor: not-allowed;
+}
+
 .box.x::before, .box.x::after {
     content: '';
     position: absolute;
     width: calc(var(--player-sign-size) * .15);
     height: var(--player-sign-size);
-    background-color: #333;
+    background-color: #44408e;
 }
 
 .box.x::before {
@@ -77,11 +84,11 @@ body {
 .box.o::before {
     width: var(--player-sign-size);
     height: var(--player-sign-size);
-    background-color: #333;
+    background-color: #44408e;
 }
 
 .box.o::after {
     width: calc(var(--player-sign-size)*.7);
     height: calc(var(--player-sign-size)*.7);
-    background-color: #fff;
+    background-color: #eadbf4;
 }
