@@ -1,2 +1,5 @@
-# tactoe
-A tic tac toe web game
+# tactoe 
+
+A simple tic tac toe project 
+
+![Image](img/banner.png) 
